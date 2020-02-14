@@ -119,6 +119,11 @@
 
   gem "fastlane"
 
+-Caso não saiba em qual diretório está... utilize a action abaixo para verifica-lo
+  - name: CheckDirectory
+    working-directory: ${{ github.workspace }}
+    run: ls -la
+
 
 Chave para descriptografar - keystore
   String para criptografia md5: hogsmead.2020.is.the.best

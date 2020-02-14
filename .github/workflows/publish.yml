@@ -34,20 +34,15 @@ jobs:
         run: bundle install
       - name: Install packages
         run: yarn install
-
-      - name: CheckDirectory
-        working-directory: ${{ github.workspace }}
-        run: ls -la
-
         # Executa o script para descriptografar o keystore e a chave de serviço google
-      # - name: Decrypt keystore and Google Credential
-      #   run: ../../deploy/decrypt.sh
-      #   env:
-      #     ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
+      - name: Decrypt keystore and Google Credential
+        run: ${{ github.workspace }}/deploy/decrypt.sh
+        env:
+          ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
         # Gera o bundle e upa para a Play Store
-      # - name: Bundle and Upload to PlayStore
-      #   run: bundle exec fastlane build_and_release_to_play_store versionName:${{ github.event.release.tag_name }}
-      #   env:
-      #     STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      - name: Bundle and Upload to PlayStore
+        run: bundle exec fastlane build_and_release_to_play_store versionName:${{ github.event.release.tag_name }}
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
