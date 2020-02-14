@@ -30,13 +30,15 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.x'
-      - name: Install Fastlane
-        run: bundle install
-      - name: Install packages
-        run: yarn install
+      
+          # - name: Install Fastlane
+      #   run: bundle install
+      
+        # - name: Install packages
+      #   run: yarn install
           
       - name: CheckDirectory
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ github.github_repository }}
         run: pwd
 
         # Executa o script para descriptografar o keystore e a chave de serviço google
