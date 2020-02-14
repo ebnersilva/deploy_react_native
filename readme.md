@@ -23,7 +23,7 @@
     KEY_PASSWORD=CHAVE_UTILIZADA_NO_KEYSTORE
     STORE_PASSWORD=CHAVE_SERVIÇO_GOOGLE
 
-  -Criamos um novo workflow no diretório .git/workflow/ com o nome publish.yml
+  -Criamos um novo workflow no diretório .github/workflow/ com o nome publish.yml
   - Conteúdo:
     name: Publish iOS and Android App to App Store and Play Store
 
@@ -66,7 +66,7 @@
 
             # Executa o script para descriptografar o keystore e a chave de serviço google
           - name: Decrypt keystore and Google Credential
-            run: ./deploy/decrypt.sh
+            run: ../../deploy/decrypt.sh
             env:
               ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
@@ -113,6 +113,11 @@
     buildNumber
   end
 
+
+-Para não acontecer o erro: Could not locate Gemfile crie um arquivo com o nome Gemfile na pasta raiz do projeto com o seguinte conteúdo:
+  source "https://rubygems.org"
+
+  gem "fastlane"
 
 
 Chave para descriptografar - keystore

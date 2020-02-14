@@ -37,7 +37,7 @@ jobs:
 
         # Executa o script para descriptografar o keystore e a chave de serviço google
       - name: Decrypt keystore and Google Credential
-        run: ./deploy/decrypt.sh
+        run: ../../deploy/decrypt.sh
         env:
           ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
