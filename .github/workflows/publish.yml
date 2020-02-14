@@ -1,0 +1,51 @@
+name: Publish iOS and Android App to App Store and Play Store
+
+on:
+  release:
+    type: [published]
+
+jobs:
+  release-ios:
+    name: Build and release iOS app
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.x'
+      - name: Install Fastlane
+        run: bundle install
+      - name: Install packages
+        run: yarn install
+
+  release-android:
+    name: Build and release Android app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.x'
+      - name: Install Fastlane
+        run: bundle install
+      - name: Install packages
+        run: yarn install
+
+        # Executa o script para descriptografar o keystore e a chave de serviço google
+      - name: Decrypt keystore and Google Credential
+        run: ./deploy/decrypt.sh
+        env:
+          ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
+
+        # Gera o bundle e upa para a Play Store
+      - name: Bundle and Upload to PlayStore
+        run: bundle exec fastlane build_and_release_to_play_store versionName:${{ github.event.release.tag_name }}
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
