@@ -31,22 +31,22 @@ jobs:
         with:
           ruby-version: '2.x'
       
-          # - name: Install Fastlane
-      #   run: bundle install
+      - name: Install Fastlane
+        run: bundle install
       
-        # - name: Install packages
-      #   run: yarn install
+      - name: Install packages
+        run: yarn install
           
-      - name: CheckDirectory
-        working-directory: ../${{ github.github_repository }}
-        run: pwd
+      # - name: CheckDirectory
+      #   working-directory: ../${{ github.github_repository }}
+      #   run: pwd
 
         # Executa o script para descriptografar o keystore e a chave de serviço google
-      # - name: Decrypt keystore and Google Credential
-      #   working-directory: ${{ github.github_repository }}
-      #   run: cd ../ && ./deploy/decrypt.sh
-      #   env:
-      #     ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
+      - name: Decrypt keystore and Google Credential
+        # working-directory: ../${{ github.github_repository }}
+        run: ./deploy/decrypt.sh
+        env:
+        ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
         # Gera o bundle e upa para a Play Store
       # - name: Bundle and Upload to PlayStore
