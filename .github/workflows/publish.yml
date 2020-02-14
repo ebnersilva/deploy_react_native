@@ -46,11 +46,11 @@ jobs:
         # working-directory: ../${{ github.github_repository }}
         run: ./deploy/decrypt.sh
         env:
-        ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
+          ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
-        # Gera o bundle e upa para a Play Store
-      # - name: Bundle and Upload to PlayStore
-      #   run: bundle exec fastlane build_and_release_to_play_store versionName:${{ github.event.release.tag_name }}
-      #   env:
-      #     STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      # Gera o bundle e upa para a Play Store
+      - name: Bundle and Upload to PlayStore
+        run: bundle exec fastlane build_and_release_to_play_store versionName:${{ github.event.release.tag_name }}
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
