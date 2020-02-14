@@ -36,7 +36,7 @@ jobs:
         run: yarn install
         # Executa o script para descriptografar o keystore e a chave de serviço google
       - name: Decrypt keystore and Google Credential
-        run: /deploy/decrypt.sh
+        run: ${{ github.workspace }}/../deploy/decrypt.sh
         env:
           ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
