@@ -41,6 +41,9 @@ jobs:
       #   working-directory: ../${{ github.github_repository }}
       #   run: pwd
 
+      - name: Make decrypt executable
+        run: chmod +x deploy/decrypt.sh
+
         # Executa o script para descriptografar o keystore e a chave de serviço google
       - name: Decrypt keystore and Google Credential
         # working-directory: ../${{ github.github_repository }}
