@@ -38,8 +38,8 @@ jobs:
       #   run: yarn install
           
       - name: CheckDirectory
-        working-directory: ${{ github.github_repository }}/../
-        run: pwd
+        working-directory: ${{ github.github_repository }}
+        run: cd ../ && pwd
 
         # Executa o script para descriptografar o keystore e a chave de serviço google
       # - name: Decrypt keystore and Google Credential
