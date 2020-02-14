@@ -17,7 +17,7 @@ lane :build_and_release_to_play_store do |options|
   upload_to_play_store(
     package_name: 'com.deploy_rn',
     track: "internal",
-    json_key: "./deploy/Service_Key_Account_Android.json",
+    json_key: "./deploy/Conta_de_Servico.json",
     aab: "./android/app/build/outputs/bundle/release/app.aab"
   )
 end
