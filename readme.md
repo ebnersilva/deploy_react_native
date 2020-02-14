@@ -1,4 +1,5 @@
-Android
+Tutorial de Deploy utilizando GithubActions e Fastlane
+
   -Liberamos a pasta .git no vscode - Pesquise por excludes nas configurações do vscode
   - Gerar o arquivo keystore em um diretório para release utilizando o comando: 
     keytool -genkeypair -v -keystore buyzerapp.keystore -alias buyzerapp -keyalg RSA -keysize 2048 -validity 10000 
