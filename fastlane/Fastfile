@@ -1,6 +1,6 @@
 lane :build_and_release_to_play_store do |options|
   # Get the custom build number
-  buildNumber = 1.0.0
+  buildNumber = "1.0.0"
 
   # Bundle the app
   gradle(
