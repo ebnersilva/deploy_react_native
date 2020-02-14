@@ -1,0 +1,32 @@
+lane :build_and_release_to_play_store do |options|
+  # Get the custom build number
+  buildNumber = 1.0.0
+
+  # Bundle the app
+  gradle(
+    task: 'bundle',
+    build_type: 'Release',
+    project_dir: "android/",
+    properties: {
+      "versionName" => options[:versionName],
+      "versionCode" => buildNumber
+    }
+  )
+
+  # Upload to Play Store's Internal Testing
+  upload_to_play_store(
+    package_name: 'com.example.app',
+    track: "internal",
+    json_key: "./deploy/Service_Key_Account_Android.json",
+    aab: "./android/app/build/outputs/bundle/release/app.aab"
+  )
+end
+
+desc "Get the custom build number"
+private_lane :get_custom_build_number do
+  buildNumber = File.read("metadata/buildNumber")
+
+  puts buildNumber
+
+  buildNumber
+end
