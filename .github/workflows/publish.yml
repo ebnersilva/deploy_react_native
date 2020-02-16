@@ -50,17 +50,17 @@ jobs:
         env:
           ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
-      # Executa o script para descriptografar o keystore e a chave de serviço google
-      - name: Verify directory android/app
-        run: cd android/app && ls
+      # Verifica o diretório android/app
+      # - name: Verify directory android/app
+      #   run: cd android/app && ls
 
-       # Gera o bundle e upa para a Play Store
-      - name: Add Plugin increment_version_code
-        run: cd android && fastlane add_plugin increment_version_code
+       # Instala o plugin do fastlane indrement_version_code
+      # - name: Add Plugin increment_version_code
+      #   run: cd android && fastlane add_plugin increment_version_code
 
       # Gera o bundle e upa para a Play Store
-      # - name: Bundle and Upload to PlayStore
-      #   run: cd android && bundle exec fastlane beta
-      #   env:
-      #     STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      - name: Bundle and Upload to PlayStore
+        run: cd android && bundle exec fastlane beta
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
