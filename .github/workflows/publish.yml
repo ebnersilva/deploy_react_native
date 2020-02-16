@@ -31,16 +31,19 @@ jobs:
         with:
           ruby-version: '2.x'
       
+      # Instala o Fastlane
       - name: Install Fastlane
         run: bundle install
       
+      # Instala os pacotes do yarn
       - name: Install packages
         run: yarn install
-          
-      # - name: CheckDirectory
-      #   working-directory: ../${{ github.github_repository }}
-      #   run: pwd
 
+      # Instala o plugin do fastlane indrement_version_code
+      - name: Add Plugin increment_version_code
+        run: cd android && fastlane add_plugin increment_version_code
+
+      # Faz com que o script de decriptografia de: keystore, chave_google e gradle.properties tenha permissão de execução
       - name: Make decrypt executable
         run: chmod +x deploy/decrypt.sh
 
@@ -49,14 +52,6 @@ jobs:
         run: deploy/decrypt.sh
         env:
           ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
-
-      # Verifica o diretório android/app
-      # - name: Verify directory android/app
-      #   run: cd android/app && ls
-
-      # Instala o plugin do fastlane indrement_version_code
-      - name: Add Plugin increment_version_code
-        run: cd android && fastlane add_plugin increment_version_code
 
       # Gera o bundle e upa para a Play Store
       - name: Bundle and Upload to PlayStore
