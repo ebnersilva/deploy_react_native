@@ -125,13 +125,13 @@
     run: ls -la
 
 
-Chave para descriptografar - keystore
-  String para criptografia md5: hogsmead.2020.is.the.best
-  MD5 da string acima: 89cc2a8b527b3b29e92ec752427f72a3
+<!-- Chave para descriptografar - keystore -->
+  <!-- String para criptografia md5: hogsmead.2020.is.the.best -->
+  <!-- MD5 da string acima: 89cc2a8b527b3b29e92ec752427f72a3 -->
 
-Chave do keystore
-  String para criptografia md5: hogsmead.2020.is.the.best
-  MD5 da string acima: 89cc2a8b527b3b29e92ec752427f72a3
+<!-- Chave do keystore -->
+  <!-- String para criptografia md5: hogsmead.2020.is.the.best -->
+  <!-- MD5 da string acima: 89cc2a8b527b3b29e92ec752427f72a3 -->
 
-Chave da conta de serviço: eae4f269ac301251571f9ce12bbd439e2acf5c35
+<!-- Chave da conta de serviço: eae4f269ac301251571f9ce12bbd439e2acf5c35 -->
   
