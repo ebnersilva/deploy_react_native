@@ -52,7 +52,7 @@ jobs:
 
       # Executa o script para descriptografar o keystore e a chave de serviço google
       - name: Verify directory android/app
-        run: cd android && ls
+        run: cd android/app && ls
 
        # Gera o bundle e upa para a Play Store
       - name: Add Plugin increment_version_code
