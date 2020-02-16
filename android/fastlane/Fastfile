@@ -2,13 +2,12 @@ default_platform(:android)
 
 platform :android do 
   lane :beta do
-    increment_version_code(
-      gradle_file_path: “app/build.gradle”
-    )
+    
 
     gradle(
       task: 'assemble',
-      build_type: 'Release'
+      build_type: 'Release',
+      versionCode: 14
     )
 
 
