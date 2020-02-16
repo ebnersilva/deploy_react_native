@@ -6,3 +6,6 @@ gpg --quiet --batch --yes --decrypt --passphrase="$ENCRYPT_PASSWORD" \
 
 gpg --quiet --batch --yes --decrypt --passphrase="$ENCRYPT_PASSWORD" \
 --output android/key_service_google.json deploy/key_service_google.json.gpg
+
+gpg --quiet --batch --yes --decrypt --passphrase="$ENCRYPT_PASSWORD" \
+--output android/gradle.properties deploy/gradle.properties.gpg
