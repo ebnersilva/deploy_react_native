@@ -59,8 +59,8 @@ jobs:
         run: cd android && fastlane add_plugin increment_version_code
 
       # Gera o bundle e upa para a Play Store
-      - name: Bundle and Upload to PlayStore
-        run: cd android && bundle exec fastlane beta
-        env:
-          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      # - name: Bundle and Upload to PlayStore
+      #   run: cd android && bundle exec fastlane beta
+      #   env:
+      #     STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
