@@ -54,9 +54,9 @@ jobs:
       # - name: Verify directory android/app
       #   run: cd android/app && ls
 
-       # Instala o plugin do fastlane indrement_version_code
-      # - name: Add Plugin increment_version_code
-      #   run: cd android && fastlane add_plugin increment_version_code
+      # Instala o plugin do fastlane indrement_version_code
+      - name: Add Plugin increment_version_code
+        run: cd android && fastlane add_plugin increment_version_code
 
       # Gera o bundle e upa para a Play Store
       - name: Bundle and Upload to PlayStore
