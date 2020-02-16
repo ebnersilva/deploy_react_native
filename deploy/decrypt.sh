@@ -5,4 +5,4 @@ gpg --quiet --batch --yes --decrypt --passphrase="$ENCRYPT_PASSWORD" \
 --output android/app/buyzerapp.keystore deploy/buyzerapp.keystore.gpg
 
 gpg --quiet --batch --yes --decrypt --passphrase="$ENCRYPT_PASSWORD" \
---output android/app/key_service_google.json android/app/key_service_google.json.gpg
+--output android/app/key_service_google.json deploy/key_service_google.json.gpg
