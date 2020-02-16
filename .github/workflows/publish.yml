@@ -50,6 +50,10 @@ jobs:
         env:
           ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
 
+       # Gera o bundle e upa para a Play Store
+      - name: Add Plugin increment_version_code
+        run: cd android && fastlane add_plugin increment_version_code
+
       # Gera o bundle e upa para a Play Store
       - name: Bundle and Upload to PlayStore
         run: cd android && bundle exec fastlane beta
