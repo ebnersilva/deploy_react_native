@@ -1,7 +1,7 @@
 default_platform(:android)
 
-platform :android do
-  lane :beta do
+platform :android do 
+  lane :beta do |options|
     increment_version_code(
       gradle_file_path: “app/build.gradle”
     )
