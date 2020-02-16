@@ -44,11 +44,15 @@ jobs:
       - name: Make decrypt executable
         run: chmod +x deploy/decrypt.sh
 
-        # Executa o script para descriptografar o keystore e a chave de serviço google
+      # Executa o script para descriptografar o keystore e a chave de serviço google
       - name: Decrypt keystore and Google Credential
         run: deploy/decrypt.sh
         env:
           ENCRYPT_PASSWORD: ${{ secrets.ENCRYPT_PASSWORD }}
+
+      # Executa o script para descriptografar o keystore e a chave de serviço google
+      - name: Verify directory android/app
+        run: cd android && ls
 
        # Gera o bundle e upa para a Play Store
       - name: Add Plugin increment_version_code
