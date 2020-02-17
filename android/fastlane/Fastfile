@@ -1,7 +1,7 @@
 default_platform(:android)
 
 platform :android do 
-  lane :beta do
+  lane :beta do |options|
     
     buildNumber = get_custom_build_number
 
