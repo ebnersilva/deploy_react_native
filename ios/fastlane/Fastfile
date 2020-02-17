@@ -1,0 +1,11 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    build_app(export_xcargs: "-allowProvisioningUpdates")
+    increment_build_number(xcodeproj: "deploy_rn.xcodeproj")
+    build_app(workspace: "deploy_rn.xcworkspace", scheme: "deploy_rn")
+    upload_to_testflight
+  end
+end

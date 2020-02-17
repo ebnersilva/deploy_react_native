@@ -41,13 +41,3 @@ target 'deploy_rn' do
 
   use_native_modules!
 end
-
-target 'deploy_rn-tvOS' do
-  # Pods for deploy_rn-tvOS
-
-  target 'deploy_rn-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end

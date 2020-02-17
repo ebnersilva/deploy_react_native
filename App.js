@@ -16,12 +16,12 @@ export default function App() {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.body}>
         <TouchableOpacity
-          style={{...styles.button, backgroundColor: 'red'}}
+          style={{...styles.button, backgroundColor: 'blue'}}
           onPress={() => Alert.alert('Mata o outro bruxo')}>
           <Text style={styles.textButton}>AvadaKedavra</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{...styles.button, backgroundColor: 'green'}}
+          style={{...styles.button, backgroundColor: 'blue'}}
           onPress={() => Alert.alert('Tortura o outro bruxo')}>
           <Text style={styles.textButton}>Crucius</Text>
         </TouchableOpacity>
