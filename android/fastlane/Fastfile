@@ -8,7 +8,6 @@ platform :android do
     gradle(
       task: 'bundle',
       build_type: 'Release',
-      project_dir: "android/",
       properties: {
         "versionName" => options[:versionName],
         "versionCode" => buildNumber
