@@ -2,9 +2,6 @@ default_platform(:android)
 
 platform :android do 
   lane :beta do
-    
-    buildNumber = get_custom_build_number
-
     gradle(
       task: 'assemble',
       build_type: 'Release',

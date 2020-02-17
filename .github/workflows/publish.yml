@@ -3,22 +3,6 @@ name: Publish iOS and Android App to App Store and Play Store
 on: push
 
 jobs:
-  release-ios:
-    name: Build and release iOS app
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.x'
-      - name: Install Fastlane
-        run: bundle install
-      - name: Install packages
-        run: yarn install
-
   release-android:
     name: Build and release Android app
     runs-on: ubuntu-latest
