@@ -3,16 +3,31 @@ default_platform(:android)
 platform :android do 
   lane :beta do
     
+    buildNumber = get_custom_build_number
 
     gradle(
-      task: 'assemble',
+      task: 'bundle',
       build_type: 'Release',
-      versionCode: 14
+      project_dir: "android/",
+      properties: {
+        "versionName" => options[:versionName],
+        "versionCode" => buildNumber
+      }
     )
 
 
     upload_to_play_store(track: 'beta')
   end
+
+  
 end
 
+desc "Get the custom build number"
+private_lane :get_custom_build_number do
+  buildNumber = File.read("metadata/buildNumber")
+
+  puts buildNumber
+
+  buildNumber
+end
 
